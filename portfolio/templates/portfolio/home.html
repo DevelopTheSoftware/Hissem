@@ -1,0 +1,22 @@
+{% extends 'portfolio/base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="text-center">
+    <h1 class="display-4">Welcome to Hissem</h1>
+    <p class="lead">The easiest way to track your stock portfolio.</p>
+    
+    {% if user.is_authenticated %}
+        <div class="mt-4">
+            <a href="{% url 'portfolio_list' %}" class="btn btn-primary me-2">View Portfolio</a>
+            <a href="{% url 'portfolio_add' %}" class="btn btn-success">Add New Stock</a>
+        </div>
+    {% else %}
+        <div class="mt-4">
+            <a href="{% url 'login' %}" class="btn btn-primary me-2">Login</a>
+            <a href="{% url 'register' %}" class="btn btn-success">Register</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %} 
